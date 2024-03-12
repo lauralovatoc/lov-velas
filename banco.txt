@@ -1,0 +1,51 @@
+create database banco;
+use banco;
+
+create table tipo_usuario(
+id_tipo_usuario int auto_increment not null,
+nome varchar(40),
+primary key(id_tipo_usuario)
+);
+
+create table usuario(
+id_usuario int auto_increment not null,
+nome varchar(40),
+email varchar(40) not null,
+senha varchar(40) not null,
+id_tipo_usuario int, 
+foreign key (id_tipo_usuario) references tipo_usuario(id_tipo_usuario),
+primary key (id_usuario)
+);
+
+create table item(
+id_item int auto_increment not null,
+nome varchar(40),
+descr varchar(60),
+quantidade int,
+custo float,
+valor float,
+data_cadastro date,
+id_usuario int,
+foreign key(id_usuario) references usuario(id_usuario),
+primary key (id_item)
+);
+
+create table pedido(
+id_pedido int auto_increment not null,
+data_compra date,
+data_aprovacao date,
+valor_total Float,
+id_usuario int,
+foreign key(id_usuario) references usuario(id_usuario),
+primary key (id_pedido)
+);
+
+create table item_pedido(
+id_item_pedido int auto_increment not null,
+id_item int,
+id_pedido int,
+quantidade int,
+foreign key (id_pedido) references pedido(id_pedido),
+foreign key (id_item) references item(id_item),
+primary key (id_item_pedido)
+);
