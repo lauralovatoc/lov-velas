@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Pedidos</title>
+        <title>Lov Velas Aromáticas</title>
         <meta charset="UTF-8">
 
         <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
