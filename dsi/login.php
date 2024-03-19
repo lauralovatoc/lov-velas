@@ -6,19 +6,26 @@
         <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script src="./js/bootstrap.bundle.min.js" type="text/javascript"></script>
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        
         <style>
-            body {
-                font-family: "Lato", sans-serif;
-                background-color:#e8e7df;
+            *{
+                font-family: "Poppins", sans-serif;  
             }
             
+            body {
+                background-color:#EED9E2;
+            }
+
             input[type=text], input[type=password] {
                 border: none;
             }
 
             .main-head{
                 height: 150px;
-                background: #24242c;
+                background: #9A4A70;
             }
 
             .sidenav {
@@ -59,7 +66,7 @@
                     z-index: 1;
                     top: 0;
                     left: 0;
-                    background-color: #24242c;
+                    background-color: #9A4A70;
                 }
 
                 .login-form{
@@ -75,27 +82,32 @@
                 margin-top: 20%;
                 padding: 60px;
                 color: #fff;
-                background-color: #24242c;
+                background-color: #9A4A70;
             }
-            
+
             .btn-black{
-                background-color: #24242c;
+                background-color: #9A4A70;
                 color: #fff;
             }
+            
+            .logo img {
+                height:20% 
+            }
         </style>
-        
+
     </head>
 
     <body>
         <form method="post" action="">
             <div class="sidenav">
                 <div class="login-main-text">
-                    <h2>bla bla<br> Página de Login</h2>
-                    <p>Cadastre-se ou faça um login aqui.</p>
+                    <a class="logo" href="index.php"><img src="img/logo-escura.png"></a>
+                    <h2>Login</h2>
+                    <p>Faça login aqui.</p>
                 </div>
             </div>
-            
-            
+
+
             <div class="main">
                 <div class="col-md-6 col-sm-12" style="padding:5%">
                     <div class="login-form">
@@ -108,17 +120,23 @@
                                 <label>Senha</label>
                                 <input type="password" class="form-control" placeholder="Digite sua senha">
                             </div>
-                            
+
                             <br>
-                            
+
                             <button type="submit" class="btn btn-black">Login</button>
-                            <button type="submit" class="btn btn-secondary">Cadastrar</button>
+                            
+                            <br><br>
+                            
+                            <div>
+                                <a class="btn" href="cadastro.php" style="color:#9A4A70; text-decoration:none; background-color:white">Clique aqui para cadastrar-se!</a>
+                            </div>
+                            
                         </form>
                     </div>
                 </div>
             </div>
-            
-            
+
+
         </form>
     </body>
 </html>
