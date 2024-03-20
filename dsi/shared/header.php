@@ -18,19 +18,6 @@
                 background-color:white;
             }
             
-            footer{
-                background-color: #F5D7E3;
-                height: 10vh;
-                color:#9A4A70;
-                padding: 0;
-                text-align: center;
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                height: 60px;
-                line-height: 60px;
-            }
-            
             .navbar {
                 background-color:#9A4A70;
                 padding:15px;
