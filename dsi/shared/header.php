@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <style>
             *{
                 font-family: "Poppins", sans-serif;  
@@ -89,8 +90,9 @@
                     
                 </ul>
 
+                
                 <span class="navbar-text">
-                    <a class="nav-link" href="carrinho.php" style="color:white">Carrinho</a>
+                    <a class="nav-link" href="carrinho.php" style="color:white"><span class="material-symbols-outlined">shopping_cart</span> Carrinho</a>
                 </span>
                 
             </div>
