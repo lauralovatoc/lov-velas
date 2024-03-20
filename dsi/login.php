@@ -9,10 +9,10 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-        
+
         <style>
             *{
                 font-family: "Poppins", sans-serif;
@@ -73,7 +73,7 @@
                 }
 
                 .login-form{
-                    margin-top: 60%;
+                    margin-top: 50%;
                 }
 
                 .register-form{
@@ -101,7 +101,7 @@
     </head>
 
     <body>
-        <form method="post" action="">
+        <form method="post" action="controller/loginController.php">
             <div class="sidenav">
                 <div class="login-main-text">
                     <a class="logo" href="index.php"><img src="img/logo-escura.png"></a>
@@ -118,12 +118,12 @@
                             <div class="form-group">
                                 <span class="material-symbols-outlined">person</span>
                                 <label>Email</label>
-                                <input type="text" class="form-control" placeholder="Digite seu email">
+                                <input type="text" class="form-control" placeholder="Digite seu email" id="email" name="email">
                             </div>
                             <div class="form-group">
                                 <span class="material-symbols-outlined">lock</span>
                                 <label>Senha</label>
-                                <input type="password" class="form-control" placeholder="Digite sua senha">
+                                <input type="password" class="form-control" placeholder="Digite sua senha" id="senha" name="senha">
                             </div>
 
                             <br>
@@ -134,6 +134,26 @@
 
                             <div>
                                 <a class="btn" href="cadastro.php" style="color:#9A4A70; text-decoration:none; background-color:white">Clique aqui para cadastrar-se!</a>
+                            </div>
+
+                            <div classs="d-grid">
+                                <?php
+                                //para verificar senha ou email
+
+                                @$cod = $_REQUEST['cod'];
+                                if (isset($cod)) {
+
+                                    if ($cod == '171') {  //informações erradas
+                                        echo ('<br><div class="alert alert-danger">');
+                                        echo ('Verifique usuário ou senha.');
+                                        echo ('</div>');
+                                    } else if ($cod == '172') { //logout
+                                        echo ('<br><div class="alert alert-danger">');
+                                        echo ('Sua sessão expirou. Realize o login novamente.');
+                                        echo ('</div>');
+                                    }
+                                }
+                                ?>
                             </div>
 
                         </form>

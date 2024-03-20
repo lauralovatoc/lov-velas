@@ -66,6 +66,18 @@
                 transform: scale(1.1);
             }
             
+            .footer {
+                text-align:center;
+                background-color: #F5D7E3;
+                height: 10vh;
+                color:#9A4A70;
+                padding: 0;
+                bottom: 0;
+                width: 100%;
+                height: 60px;
+                line-height: 60px;
+            }
+           
         </style>
     </head>
 
@@ -86,6 +98,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Login</a>
                     </li>
+                    
+                    </li>
+                    <?php
+                    @session_start();
+                    if ($_SESSION) {
+                        echo('<li class="nav-item">
+                        <a class="nav-link" 
+                        style="text-decoration: none;"
+                        href="controller/logoutController.php?cod=logout">Logout</a>
+                        </li>');
+                    }
+                    ?>
 
                     
                 </ul>
@@ -97,4 +121,4 @@
                 
             </div>
         </nav>
-        <div class="container">
+        

@@ -2,7 +2,7 @@ create database lov;
 use lov;
 
 create table tipo_usuario(
-id_tipo_usuario int auto_increment not null,
+id_tipo_usuario int not null,
 nome varchar(40),
 primary key(id_tipo_usuario)
 );
@@ -49,3 +49,6 @@ foreign key (id_pedido) references pedido(id_pedido),
 foreign key (id_item) references item(id_item),
 primary key (id_item_pedido)
 );
+
+insert into tipo_usuario values (1, "Administrador");
+insert into tipo_usuario values (2, "Usuário");

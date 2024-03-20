@@ -3,7 +3,7 @@ require_once './shared/header.php';
 ?>
 
 <br><br><br><br><br>
-
+<div class="container">
 <div class="row">
     <div class="col-md-12">
         <h2>Nossos Best Sellers!</h2>
@@ -99,11 +99,14 @@ require_once './shared/header.php';
         <center>
             <button style="border: 1px solid #9A4A70"><a style="text-decoration:none; color:#9A4A70" href="itens.php">Mostrar mais</a></button>
         </center>
+        
     </div>
 
 </div>
 
 <br><br>
+</div>
+<div class="footer">©2024</div>
 <?php
 require_once './shared/footer.php';
 ?>

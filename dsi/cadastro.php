@@ -102,7 +102,7 @@
     </head>
 
     <body>
-        <form method="post" action="">
+        <form method="post" action="./controller/cadastroController.php">
             <div class="sidenav">
                 <div class="login-main-text">
                     <a class="logo" href="index.php"><img src="img/logo-escura.png"></a>
@@ -116,22 +116,23 @@
                 <div class="col-md-6 col-sm-12" style="padding:5%">
                     <div class="login-form">
                         <form>
+                            <input type="hidden" name="id" value="<?php echo @(isset($usrObject)? $usrObject->getId_usuario():'') ?>">
                             <div class="form-group">
                                 <span class="material-symbols-outlined">person_add</span>
                                 <label>Nome:</label>
-                                <input type="text" class="form-control" placeholder="Digite seu nome">
+                                <input type="text" class="form-control" placeholder="Digite seu nome" id="nome" name="nome">
                             </div>
                             
                             <div class="form-group">
                                 <span class="material-symbols-outlined">person</span>
                                 <label>Email</label>
-                                <input type="text" class="form-control" placeholder="Digite seu email">
+                                <input type="text" class="form-control" placeholder="Digite seu email" id="email" name="email">
                             </div>
                             
                             <div class="form-group">
                                 <span class="material-symbols-outlined">lock</span>
                                 <label>Senha</label>
-                                <input type="password" class="form-control" placeholder="Digite sua senha">
+                                <input type="password" class="form-control" placeholder="Digite sua senha" id="senha" name="senha">
                             </div>
 
                             <br>

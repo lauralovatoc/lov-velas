@@ -46,5 +46,39 @@ class usuarioModel {
     }
 
     //métodos especialistas
+    public function login($email,$senha){
+        $db = new ConexaoMysql();
+        $db->Conectar();
+        
+        $sql = "SELECT * FROM usuario where email ='$email'and senha ='$senha'";
+        
+        $db->Consultar($sql);
+        $result = $db->total;
+        
+        if($result>=1){
+            session_start();
+            $_SESSION['login'] = $email;
+            header('location:../index.php');
+            //quero passaar o id_tipo_usuario na sessao tbm
+        } else {
+            header('location:../login.php?cod=171');
+        }
+        
+        $db->Desconectar();
+    }
     
+    public function cadastrar($nome,$email,$senha){
+        $db = new ConexaoMySql();
+        $db->Conectar();
+        
+        $id_tipo_usuario = 2;
+        
+        $sql = "INSERT INTO usuario (nome,email,senha,id_tipo_usuario) values ('$nome','$email','$senha','$id_tipo_usuario')";
+        
+        $db->Executar($sql);
+        
+        header('location:../login.php');
+        
+        $db->Desconectar();
+    }
 }
