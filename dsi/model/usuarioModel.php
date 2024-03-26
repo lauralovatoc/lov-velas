@@ -57,7 +57,9 @@ class usuarioModel {
         
         if($result>=1){
             session_start();
-            $_SESSION['login'] = $email;
+            
+            $_SESSION['login']=$email;
+            $_SESSION['tipo_usuario']=$id_tipo_usuario;
             header('location:../index.php');
             //quero passaar o id_tipo_usuario na sessao tbm
         } else {

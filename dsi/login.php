@@ -73,7 +73,7 @@
                 }
 
                 .login-form{
-                    margin-top: 50%;
+                    margin-top: 40%;
                 }
 
                 .register-form{

@@ -110,6 +110,18 @@
                         </li>');
                     }
                     ?>
+                    
+                    <li>
+                        <?php
+                    @session_start();
+                    if ($_SESSION['tipo_usuario']==1) {
+                        echo('<li class="nav-item">
+                        <a class="nav-link" 
+                        style="text-decoration: none;"
+                        href="../adminPage.php?cod=admin">Admin</a>
+                        </li>');
+                    }
+                    ?>
 
                     
                 </ul>

@@ -52,3 +52,4 @@ primary key (id_item_pedido)
 
 insert into tipo_usuario values (1, "Administrador");
 insert into tipo_usuario values (2, "Usuário");
+insert into usuario(nome,email,senha,id_tipo_usuario) values ("Laura Lovato","laura.lovato@gmail.com","Marinc77.",1);
