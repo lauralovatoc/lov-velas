@@ -2,9 +2,12 @@
     <head>
         <title>Lov Velas Aromáticas</title>
         <meta charset="UTF-8">
-
+        
+        <script src="../js/jquery-3.7.1.min.js" type="text/javascript"></script>
         <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
         <script src="./js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <script src="../js/jquery.dataTables.min.js" type="text/javascript"></script>
         
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
