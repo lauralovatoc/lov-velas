@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <style>
             *{
                 font-family: "Poppins", sans-serif;  
@@ -47,6 +48,10 @@
             h2, p {
                 color:#702a4b;
                 text-align:center;
+            }
+            
+            h3 {
+                color:#702a4b;
             }
             
             .best-seller {
@@ -83,6 +88,21 @@
                 line-height: 60px;
             }
            
+            .table {
+                margin:10px;
+            }
+            
+            #btn-editar{
+                color:#9A4A70;
+                background-color:#F5D7E3;
+            }
+            
+            #btn-excluir {
+                color:white;
+                background-color:#9A4A70;
+            }
+            
+            #9A4A70
         </style>
     </head>
 
@@ -97,29 +117,11 @@
                     </li>
                     
                     <li class="nav-item">  
-                        <a class="nav-link" href="itens.php"><span class="material-symbols-outlined" style="color:white">candle</span> Velas</a>
+                        <a class="nav-link" href="velas.php"><span class="material-symbols-outlined" style="color:white">candle</span> Velas</a>
                     </li>
                     
-                    <li class="nav-item">                        
-                        <a class="nav-link" href="login.php"><span class="material-symbols-outlined" style="color:white">person</span> Login</a>
-                    </li>
-                    
-                    </li>
-                    <?php
-                    @session_start();
-                    if ($_SESSION) {
-                        echo('<li class="nav-item">
-                        <a class="nav-link" 
-                        style="text-decoration: none;"
-                        href="controller/logoutController.php?cod=logout">Logout</a>
-                        </li>');
-                    }
-                    ?>
-                    
-                    <li>
-                        <?php
-                    @session_start();
-                    if ($_SESSION['tipo_usuario']==1) {
+                     <?php
+                    if (isset($_SESSION['tipo_usuario'])) {
                         echo('<li class="nav-item">
                         <a class="nav-link" 
                         style="text-decoration: none;"
@@ -127,6 +129,25 @@
                         </li>');
                     }
                     ?>
+                    
+                    <?php
+                    
+                    if (!isset($_SESSION['login'])){
+                    echo '<li class="nav-item">';
+                        '<a class="nav-link" href="login.php"><span class="material-symbols-outlined" style="color:white">person</span> Login</a>';
+                    '</li>';
+                    }
+                    
+                    else if (isset($_SESSION['login'])) {
+                        echo('<li class="nav-item">
+                        <a class="nav-link" 
+                        style="text-decoration: none;"
+                        href="controller/logoutController.php?cod=logout"><span class="material-symbols-outlined">logout</span> Logout</a>
+                        </li>');
+                    }
+                    ?>
+    
+                   
 
                     
                 </ul>

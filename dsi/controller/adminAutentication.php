@@ -1,6 +1,7 @@
 <?php
 session_start();
-if($_SESSION['tipo_usuario']== 1){
-    header('location:login.php?cod=174');
+if(!isset($_SESSION['tipo_usuario'])){
+    header('location:login.php?cod=172');
 }
+
 ?>

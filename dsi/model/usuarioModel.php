@@ -59,9 +59,9 @@ class usuarioModel {
             session_start();
             
             $_SESSION['login']=$email;
-            $_SESSION['tipo_usuario']=$id_tipo_usuario;
-            header('location:../index.php');
-            //quero passaar o id_tipo_usuario na sessao tbm
+            
+            header('location:../velas.php');
+            
         } else {
             header('location:../login.php?cod=171');
         }
@@ -81,6 +81,31 @@ class usuarioModel {
         
         header('location:../login.php');
         
+        $db->Desconectar();
+    }
+    
+    public function loadAdmin($id_tipo_usuario){
+        $db = new ConexaoMySql();
+        $db-> Conectar();
+        
+        if ($id_tipo_usuario==1){
+            $sql = "SELECT * from usuario where $id_tipo_usuario=1";
+            
+            $db->Consultar($sql);
+        }
+        
+        if($result>=1){
+            session_start();
+            
+            $_SESSION['tipo_usuario']=$id_tipo_usuario;
+            
+            header('location:../adminPage.php');
+            
+        } else {
+            header('location:../index.php?cod=174');
+        }
+        
+        $result = $db->total;
         $db->Desconectar();
     }
 }

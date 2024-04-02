@@ -24,21 +24,21 @@ require_once './shared/header.php';
             <div class="row">
                 <div class="col-md-4">
                     <div class="zoom">
-                        <img class="best-seller" src="img/velas/vela-blueberry.jpeg">
+                        <img class="best-seller" src="img/vela-blueberry.jpeg">
                     </div>
                     <p>Vela Blueberry</p>
                 </div>
 
                 <div class="col-md-4">
                     <div class="zoom">
-                        <img  class="best-seller" src="img/velas/vela-raspberry.jpg">
+                        <img  class="best-seller" src="img/vela-raspberry.jpg">
                     </div>
                     <p>Vela Raspberry</p>
                 </div>
 
                 <div class="col-md-4">
                     <div class="zoom">
-                        <img class="best-seller" src="img/velas/vela-strawberry-choco.jpeg">
+                        <img class="best-seller" src="img/vela-strawberry-choco.jpeg">
                     </div>
                     <p>Vela Strawberry Choco</p>
                 </div>
@@ -52,63 +52,63 @@ require_once './shared/header.php';
             <div class="row">
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/velas/vela-bamboo-forest.png" alt=""/>
+                        <img src="img/vela-bamboo-forest.png" alt=""/>
                     </div>
                     <p>Vela Bamboo Forest</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/velas/vela-bday-cake.jpg" alt=""/>
+                        <img src="img/vela-bday-cake.jpg" alt=""/>
                     </div>
                     <p>Vela Birthday Cake</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/velas/vela-blueberry.jpeg" alt=""/>
+                        <img src="img/vela-blueberry.jpeg" alt=""/>
                     </div>
                     <p>Vela Blueberry</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/velas/vela-butter-waffles.jpeg" alt=""/>
+                        <img src="img/vela-butter-waffles.jpeg" alt=""/>
                     </div>
                     <p>Vela Butter Waffles</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/velas/vela-cherry-blossom.png" alt=""/>
+                        <img src="img/vela-cherry-blossom.png" alt=""/>
                     </div>
                     <p>Vela Cherry Blossom</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/velas/vela-choco.png" alt=""/>
+                        <img src="img/vela-choco.png" alt=""/>
                     </div>
                     <p>Vela Choco</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/velas/vela-coffee.jpeg" alt=""/>
+                        <img src="img/vela-coffee.jpeg" alt=""/>
                     </div>
                     <p>Vela Coffee</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/velas/vela-donut.jpeg" alt=""/>
+                        <img src="img/vela-donut.jpeg" alt=""/>
                     </div>
                     <p>Vela Donut</p>
                 </div>
             </div>
 
             <center>
-                <button style="border: 1px solid #9A4A70"><a style="text-decoration:none; color:#9A4A70" href="itens.php">Mostrar mais</a></button>
+                <button style="border: 1px solid #9A4A70"><a style="text-decoration:none; color:#9A4A70" href="velas.php">Mostrar mais</a></button>
             </center>
 
         </div>
