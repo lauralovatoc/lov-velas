@@ -17,37 +17,34 @@ foreign key (id_tipo_usuario) references tipo_usuario(id_tipo_usuario),
 primary key (id_usuario)
 );
 
-create table item(
-id_item int auto_increment not null,
+create table vela(
+id_vela int auto_increment not null,
 nome varchar(40),
 descr varchar(60),
 quantidade int,
 custo float,
 valor float,
-data_cadastro date,
-id_usuario int,
-foreign key(id_usuario) references usuario(id_usuario),
-primary key (id_item)
+caminho_img varchar(100),
+primary key (id_vela)
 );
 
 create table pedido(
 id_pedido int auto_increment not null,
 data_compra date,
-data_aprovacao date,
 valor_total Float,
 id_usuario int,
 foreign key(id_usuario) references usuario(id_usuario),
 primary key (id_pedido)
 );
 
-create table item_pedido(
-id_item_pedido int auto_increment not null,
-id_item int,
+create table vela_pedido(
+id_vela_pedido int auto_increment not null,
+id_vela int,
 id_pedido int,
 quantidade int,
 foreign key (id_pedido) references pedido(id_pedido),
-foreign key (id_item) references item(id_item),
-primary key (id_item_pedido)
+foreign key (id_vela) references vela(id_vela),
+primary key (id_vela_pedido)
 );
 
 insert into tipo_usuario values (1, "Administrador");
