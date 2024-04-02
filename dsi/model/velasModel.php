@@ -4,21 +4,21 @@ require_once 'ConexaoMysql.php';
 
 class velasModel {
     
-    protected $id_item;
+    protected $id_vela;
     protected $nome;
     protected $descr;
     protected $quantidade;
     protected $custo;
     protected $valor;
-    protected $data_cadastro;
+    protected $caminho_img;
     
 
     public function __construct() {
         //vazio
     }
 
-    public function getId_item() {
-        return $this->id_item;
+    public function getId_vela() {
+        return $this->id_vela;
     }
 
     public function getNome() {
@@ -41,12 +41,12 @@ class velasModel {
         return $this->valor;
     }
 
-    public function getData_cadastro() {
-        return $this->data_cadastro;
+    public function getCaminho_img() {
+        return $this->caminho_img;
     }
 
-    public function setId_item($id_item): void {
-        $this->id_item = $id_item;
+    public function setId_vela($id_vela): void {
+        $this->id_item = $id_vela;
     }
 
     public function setNome($nome): void {
@@ -69,8 +69,8 @@ class velasModel {
         $this->valor = $valor;
     }
 
-    public function setData_cadastro($data_cadastro): void {
-        $this->data_cadastro = $data_cadastro;
+    public function setCaminho_img($caminho_img): void {
+        $this->caminho_img = $caminho_img;
     }
 
     
@@ -80,7 +80,7 @@ class velasModel {
         $db = new ConexaoMysql();
         $db->Conectar();
 
-        $sql = 'SELECT * FROM item';
+        $sql = 'SELECT * FROM vela';
         $resultList = $db->Consultar($sql);
 
         $db->Desconectar();
@@ -88,24 +88,24 @@ class velasModel {
         return $resultList;
     }
 
-    public function loadById($id_item) {
+    public function loadById($id_vela) {
 
         $db = new ConexaoMysql();
         $db->Conectar();
 
-        $sql = 'SELECT * FROM item where id_item =' . $id_item;
+        $sql = 'SELECT * FROM vela where id_vela =' . $id_vela;
         $resultList = $db->Consultar($sql);
 
         //verifica se retornou um registro do database
         if ($db->total == 1) {
             foreach ($resultList as $value) {
-                $this->id_item = $value['id_item'];
+                $this->id_vela = $value['id_vela'];
                 $this->nome = $value['nome'];
                 $this->descr = $value['descr'];
-                $this->quantidade = $quantidade['quantidade'];
-                $this->custo = $custo['custo'];
-                $this->valor = $valor['valor'];
-                $this->data_cadastro = $data_cadastro['data_cadastro'];
+                $this->quantidade = $value['quantidade'];
+                $this->custo = $value['custo'];
+                $this->valor = $value['valor'];
+                $this->caminho_img = $value['caminho_img'];
             }
         }
         $db->Desconectar();
