@@ -7,11 +7,11 @@ function loadAll() {
     return $velasList;
 }
 
-function loadById($id_item) {
+function loadById($id_vela) {
     require_once './model/velasModel.php';
     $velas = new velasModel();
 
-    $velas->loadById($id_item);
+    $velas->loadById($id_vela);
 
     return $velas;
 }
