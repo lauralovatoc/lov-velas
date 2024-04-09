@@ -31,8 +31,8 @@ create table pedido(
 id_pedido int auto_increment not null,
 data_compra date,
 valor_total Float,
-id_usuario int,
-foreign key(id_usuario) references usuario(id_usuario),
+email varchar(40),
+foreign key(email) references usuario(email),
 primary key (id_pedido)
 );
 
