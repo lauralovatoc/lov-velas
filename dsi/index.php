@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once './shared/header.php';
+
 ?>
 
 <br><br><br><br><br>
@@ -12,7 +14,7 @@ require_once './shared/header.php';
 
                 if ($cod == '174') {  
                     echo ('<br><div class="alert alert-danger">');
-                    echo ('Apenas para usuários.');
+                    echo ('Apenas para administradores.');
                     echo ('</div>');
                 }
             }
@@ -24,21 +26,21 @@ require_once './shared/header.php';
             <div class="row">
                 <div class="col-md-4">
                     <div class="zoom">
-                        <img class="best-seller" src="img/vela-blueberry.jpeg">
+                        <a href="velas.php"><img class="best-seller" src="img/vela-blueberry.jpeg"></a>
                     </div>
                     <p>Vela Blueberry</p>
                 </div>
 
                 <div class="col-md-4">
                     <div class="zoom">
-                        <img  class="best-seller" src="img/vela-raspberry.jpg">
+                        <a href="velas.php"><img  class="best-seller" src="img/vela-raspberry.jpg"></a>
                     </div>
                     <p>Vela Raspberry</p>
                 </div>
 
                 <div class="col-md-4">
                     <div class="zoom">
-                        <img class="best-seller" src="img/vela-strawberry-choco.jpeg">
+                        <a href="velas.php"><img class="best-seller" src="img/vela-strawberry-choco.jpeg"></a>
                     </div>
                     <p>Vela Strawberry Choco</p>
                 </div>
@@ -52,56 +54,56 @@ require_once './shared/header.php';
             <div class="row">
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/vela-bamboo-forest.png" alt=""/>
+                        <a href="velas.php"><img src="img/vela-bamboo-forest.png" alt=""/></a>
                     </div>
                     <p>Vela Bamboo Forest</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/vela-bday-cake.jpg" alt=""/>
+                        <a href="velas.php"><img src="img/vela-bday-cake.jpg" alt=""/></a>
                     </div>
                     <p>Vela Birthday Cake</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/vela-blueberry.jpeg" alt=""/>
+                        <a href="velas.php"><img src="img/vela-blueberry.jpeg" alt=""/></a>
                     </div>
                     <p>Vela Blueberry</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/vela-butter-waffles.jpeg" alt=""/>
+                        <a href="velas.php"><img src="img/vela-butter-waffles.jpeg" alt=""/></a>
                     </div>
                     <p>Vela Butter Waffles</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/vela-cherry-blossom.png" alt=""/>
+                        <a href="velas.php"><img src="img/vela-cherry-blossom.png" alt=""/></a>
                     </div>
                     <p>Vela Cherry Blossom</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/vela-choco.png" alt=""/>
+                        <a href="velas.php"><img src="img/vela-choco.png" alt=""/></a>
                     </div>
                     <p>Vela Choco</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/vela-coffee.jpeg" alt=""/>
+                        <a href="velas.php"><img src="img/vela-coffee.jpeg" alt=""/></a>
                     </div>
                     <p>Vela Coffee</p>
                 </div>
 
                 <div class="col-md-3">
                     <div class="zoom">
-                        <img src="img/vela-donut.jpeg" alt=""/>
+                        <a href="velas.php"><img src="img/vela-donut.jpeg" alt=""/></a>
                     </div>
                     <p>Vela Donut</p>
                 </div>

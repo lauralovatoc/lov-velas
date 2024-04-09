@@ -3,7 +3,6 @@
 require_once 'ConexaoMySql.php';
 
 class usuarioModel {
-    protected $id_usuario;
     protected $nome;
     protected $senha;
     protected $id_tipo_usuario;
@@ -13,10 +12,6 @@ class usuarioModel {
     }
     
     //getters and setters
-    public function getId_usuario() {
-        return $this->id_usuario;
-    }
-
     public function getNome() {
         return $this->nome;
     }
@@ -29,9 +24,6 @@ class usuarioModel {
         return $this->id_tipo_usuario;
     }
 
-    public function setId_usuario($id_usuario): void {
-        $this->id_usuario = $id_usuario;
-    }
 
     public function setNome($nome): void {
         $this->nome = $nome;
@@ -56,11 +48,22 @@ class usuarioModel {
         $result = $db->total;
         
         if($result>=1){
+                            
             session_start();
             
             $_SESSION['login']=$email;
             
-            header('location:../velas.php');
+            $dbAdmin = new ConexaoMysql;
+            $dbAdmin->Conectar();
+            $admin = "SELECT * from usuario where id_tipo_usuario=1 and senha='$senha' and email ='$email'";
+            $dbAdmin->Consultar($admin);
+            $resultAdmin = $dbAdmin -> total;
+            
+            if($resultAdmin == 1){
+                    $_SESSION['tipo_usuario']='1';
+                    header('location:../adminPage.php');
+                } else{
+                    header('location:../velas.php');}
             
         } else {
             header('location:../login.php?cod=171');
@@ -69,43 +72,28 @@ class usuarioModel {
         $db->Desconectar();
     }
     
-    public function cadastrar($nome,$email,$senha){
-        $db = new ConexaoMySql();
-        $db->Conectar();
+    public function cadastrar($nome,$email,$senha){        
+        $dbemail = new ConexaoMysql();
+        $dbemail->Conectar();
         
-        $id_tipo_usuario = 2;
+        $verificarEmail = "SELECT * FROM usuario WHERE email='$email'";
         
-        $sql = "INSERT INTO usuario (nome,email,senha,id_tipo_usuario) values ('$nome','$email','$senha','$id_tipo_usuario')";
+        $dbemail->Consultar($verificarEmail);
+        $result = $dbemail -> total;
         
-        $db->Executar($sql);
+        if ($result>=1){
+            header('location:../cadastro.php?cod=175');
+        } else{
+            $db = new ConexaoMySql();
+            $db->Conectar();
         
-        header('location:../login.php');
+            $id_tipo_usuario = 2;
+            $sql = "INSERT INTO usuario (nome,email,senha,id_tipo_usuario) values ('$nome','$email','$senha','$id_tipo_usuario')";
+            $db->Executar($sql);
+            header('location:../login.php');
         
-        $db->Desconectar();
-    }
-    
-    public function loadAdmin($id_tipo_usuario){
-        $db = new ConexaoMySql();
-        $db-> Conectar();
-        
-        if ($id_tipo_usuario==1){
-            $sql = "SELECT * from usuario where $id_tipo_usuario=1";
-            
-            $db->Consultar($sql);
+            $db->Desconectar();
         }
-        
-        if($result>=1){
-            session_start();
-            
-            $_SESSION['tipo_usuario']=$id_tipo_usuario;
-            
-            header('location:../adminPage.php');
-            
-        } else {
-            header('location:../index.php?cod=174');
-        }
-        
-        $result = $db->total;
-        $db->Desconectar();
     }
+
 }

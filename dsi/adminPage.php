@@ -3,18 +3,18 @@ require_once './controller/adminAutentication.php';
 require_once './shared/header.php';
 ?>
 <main class="admin">
-    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
 <div class="row">
     <div class="col-sm-12">
         <h3 style="margin-left:30px">Velas-produtos:</h3>
         
         <table id="velasTable" class="table table-bordered">
             <thead>
+            <th>Imagem</th>
             <th>Vela</th>
             <th>Descrição</th>
             <th>Quantidade</th>
             <th>Valor</th>
-            <th>Imagem</th>
             
             </thead>
 
@@ -25,7 +25,11 @@ require_once './shared/header.php';
                 $velasList = loadAll();
                 foreach ($velasList as $velas) {
                     echo '<tr>';
-
+                    
+                    echo '<td><img src="';
+                    echo $velas['caminho_img'];
+                    echo '" style="width:100px; height:125px"></td>';
+                    
                     echo '<td>';
                     echo $velas['nome'];
                     echo '</td>';
@@ -42,9 +46,7 @@ require_once './shared/header.php';
                     echo $velas['valor'];
                     echo '</td>';
                     
-                    echo '<td>';
-                    echo $velas['caminho_img'];
-                    echo '</td>';
+                    
                    
                     //Operações
                     echo '<td>';

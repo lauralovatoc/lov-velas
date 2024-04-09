@@ -138,7 +138,16 @@
                             <br>
 
                             <button type="submit" class="btn btn-black">Cadastrar</button>
-        
+                            <?php
+                            @$cod = $_REQUEST['cod'];
+                                if (isset($cod)) {
+                                if($cod=='175'){ //email ja foi utilizado
+                                        echo('<br><div class="alert alert-danger">');
+                                        echo('Este email já está sendo utilizado!');
+                                        echo('</div>');
+                                    }
+                                }
+                            ?>
                         </form>
                     </div>
                 </div>

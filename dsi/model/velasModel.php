@@ -112,5 +112,56 @@ class velasModel {
 
         return $resultList;
     }
+    
+    public function insert() {
+        $db = new ConexaoMysql();
+        $db->Conectar();
+
+        $sql = 'INSERT INTO velas(nome,descr,quantidade,custo,valor,caminho_img) '
+                . 'values("' . $this->nome . '",'
+                . '"' . $this->descr . '",'
+                . '"' . $this->quantidade . '",'
+                . '"' . $this->custo . '"),'
+                . '"' . $this->valor . '"),'
+                . '"' . $this->caminho_img . '")';
+
+        $db->Executar($sql);
+        $db->Desconectar();
+
+        return $db->total;
+    }
+
+    public function update() {
+        $db = new ConexaoMysql();
+        $db->Conectar();
+
+        $sql = 'UPDATE velas SET '
+                . 'nome="'.$this->nome.'",'
+                . 'descr="'.$this->descr.'",'
+                . 'quantidade ="'.$this->quantidade.'",'
+                . 'custo ="'.$this->custo.'"'
+                . 'valor ="'.$this->valor.'"'
+                . 'caminho_img ="'.$this->caminho_img.'"'
+                . 'WHERE id_vela = '.$this->id_vela;
+
+        $db->Executar($sql);
+        $db->Desconectar();
+
+        return $db->total;
+    }
+    
+    public function delete() {
+        $db = new ConexaoMysql();
+        $db->Conectar();
+    
+        $sql = 'DELETE FROM racas WHERE id_vela='.$this->id_vela;
+      
+        $db->Executar($sql);
+        $db->Desconectar();
+
+        return $db->total;
+    }
+
 }
+
 ?>
