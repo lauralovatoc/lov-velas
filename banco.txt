@@ -8,13 +8,12 @@ primary key(id_tipo_usuario)
 );
 
 create table usuario(
-id_usuario int auto_increment not null,
 nome varchar(40),
 email varchar(40) not null,
 senha varchar(40) not null,
 id_tipo_usuario int, 
 foreign key (id_tipo_usuario) references tipo_usuario(id_tipo_usuario),
-primary key (id_usuario)
+primary key (email)
 );
 
 create table vela(
