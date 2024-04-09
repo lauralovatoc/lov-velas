@@ -53,7 +53,7 @@ insert into usuario(nome,email,senha,id_tipo_usuario) values ("Laura Lovato","la
 
 insert into vela values (1,"Vela Salada de Frutas","Vela aromatizada com essência de salada de frutas.",70,25,60.00,"img/vela-salada-fruta.jpg");
 insert into vela values (2,"Vela Blueberry","Vela aromatizada com essência de mirtilo.",95,25,55.00,"img/vela-blueberry.jpeg");
-insert into vela values (3,"Vela Butter Waffles","Vela aromatizada com essência de waffles amentegados.",67,25,50.00,"img/vela-salada-fruta.jpg");
+insert into vela values (3,"Vela Butter Waffles","Vela aromatizada com essência de waffles amentegados.",67,25,50.00,"img/vela-butter-waffles.jpeg");
 insert into vela values (4,"Vela Birthday Cake","Vela aromatizada com essência de bolo de baunilha.",45,25,60.00,"img/vela-bday-cake.jpg");
 insert into vela values (5,"Vela Raspberry","Vela aromatizada com essência de framboesa.",54,25,55.00,"img/vela-raspberry.jpg");
 insert into vela values (6,"Vela Strwaberry Choco","Vela aromatizada com essência de morango e essência de chocolate.",39,25,60.00,"img/vela-strawberry-choco.jpeg");
