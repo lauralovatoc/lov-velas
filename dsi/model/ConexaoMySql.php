@@ -4,7 +4,7 @@ class ConexaoMysql {
     protected $mysqli;
     protected $server = '127.0.0.1'; //Endereço do servidor
     protected $user = 'root'; //Usuario que acessa o banco
-    protected $pass = '12345'; //Senha do usuário
+    protected $pass = 'Marinc77.'; //Senha do usuário
     protected $dataBase = 'lov'; //Nome da base de dados
 
     /** Informa o TOTAL de qualquer registro afetado

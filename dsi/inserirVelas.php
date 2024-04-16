@@ -108,11 +108,20 @@ require_once './controller/adminAutentication.php';
                 <div class="login-main-text">
                     <a class="logo" href="index.php"><img src="img/logo-escura.png"></a>
                     <h4>Inserir uma vela</h4>
-                    <p>no sistema</p>
+                    <p>- ou editar</p>
                 </div>
-            </div>
+            </div>]
+            <?php
+            @$cod = $_REQUEST['cod'];
+            if (isset($cod)) {
 
-
+            if ($cod == 'edit'){
+                require_once 'controller/velasController.php';
+                       $id_vela = $_REQUEST['id_vela'];
+                       $velas = loadById($id_vela);
+            }
+            }
+            ?>
             <div class="main">
                 <div class="col-md-6 col-sm-12" style="padding:5%">
                     <div class="login-form">
@@ -145,14 +154,14 @@ require_once './controller/adminAutentication.php';
                             
                             <!-- receber em filefield-->
                             <div class="form-group">
-                                <label>Caminho da imagem:</label>
-                                <input type="number" class="form-control" placeholder="Caminho da imagem no pc" id="caminho_img" name="caminho_img">
+                                <label>Imagem:</label>
+                                <input type="file" class="form-control" placeholder="Caminho da imagem no pc" id="caminho_img" name="caminho_img">
                             </div>
 
                             <br>
 
                             <button type="submit" class="btn btn-black">Inserir</button>
-                       
+            
                         </form>
                     </div>
                 </div>

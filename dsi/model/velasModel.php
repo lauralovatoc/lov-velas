@@ -46,7 +46,7 @@ class velasModel {
     }
 
     public function setId_vela($id_vela): void {
-        $this->id_item = $id_vela;
+        $this->id_vela = $id_vela;
     }
 
     public function setNome($nome): void {
@@ -96,7 +96,6 @@ class velasModel {
         $sql = 'SELECT * FROM vela where id_vela =' . $id_vela;
         $resultList = $db->Consultar($sql);
 
-        //verifica se retornou um registro do database
         if ($db->total == 1) {
             foreach ($resultList as $value) {
                 $this->id_vela = $value['id_vela'];
@@ -113,19 +112,17 @@ class velasModel {
         return $resultList;
     }
     
-    public function insert() {
+    public function insert($nome,$descr,$quantidade,$custo,$valor,$caminho_img) {
         $db = new ConexaoMysql();
         $db->Conectar();
 
-        $sql = 'INSERT INTO velas(nome,descr,quantidade,custo,valor,caminho_img) '
-                . 'values("' . $this->nome . '",'
-                . '"' . $this->descr . '",'
-                . '"' . $this->quantidade . '",'
-                . '"' . $this->custo . '"),'
-                . '"' . $this->valor . '"),'
-                . '"' . $this->caminho_img . '")';
-
+        $sql = "INSERT INTO vela(nome,descr,quantidade,custo,valor,caminho_img) values('$nome','$descr','$quantidade','$custo','$valor','$caminho_img')";
+    
+  
         $db->Executar($sql);
+        
+        header('location:../adminPage.php');
+        
         $db->Desconectar();
 
         return $db->total;
@@ -154,12 +151,10 @@ class velasModel {
         $db = new ConexaoMysql();
         $db->Conectar();
     
-        $sql = 'DELETE FROM racas WHERE id_vela='.$this->id_vela;
-      
+        $sql = 'DELETE FROM vela WHERE id_vela='.$this->id_vela;
+        header('location:../adminPage.php');
         $db->Executar($sql);
         $db->Desconectar();
-
-        return $db->total;
     }
 
 }

@@ -2,14 +2,37 @@
 if($_POST){
     require_once '../model/velasModel.php';
     
-    $nome_registrado = $_POST['nome'];
-    $email_registrado = $_POST['email'];
-    $senha_registrada = $_POST['senha'];
+    $nome = $_POST['nome'];
+    $descr = $_POST['descr'];
+    $quantidade = $_POST['quantidade'];
+    $custo = $_POST['custo'];
+    $valor = $_POST['valor'];
+    $caminho_img = $_POST['caminho_img'];
+    
+    $caminho_img = 'img/' . $caminho_img;
     
     $velas = new velasModel();
-    $velas->insert($nome_registrado,$email_registrado,$senha_registrada);
+    $velas->insert($nome,$descr,$quantidade,$custo,$valor,$caminho_img);
+        
+
+ 
 }
-function loadAll() {
+
+@$cod = $_REQUEST['cod'];
+            if (isset($cod)) {
+
+            if ($cod == 'del'){
+            require_once '../model/velasModel.php';
+            $velas = new velasModel();
+        
+            if (isset($_REQUEST['id_vela'])){
+                $velas->setId_vela($_REQUEST['id_vela']);
+                $velas->delete();
+            }
+            }
+            
+}
+ function loadAll() {
     require_once './model/velasModel.php';
     $velas = new velasModel();
     $velasList = $velas->loadAll();
@@ -25,4 +48,3 @@ function loadById($id_vela) {
 
     return $velas;
 }
-?>

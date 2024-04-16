@@ -50,11 +50,11 @@ require_once './shared/header.php';
                    
                     //Operações
                     echo '<td>';
-                        echo '<a class="btn" id="btn-editar" href="cadastrarProduto.php?cod=edit&&id='.$velas['id_vela'].'">Editar</a>'; 
+                        echo '<a class="btn" id="btn-editar" href="inserirVelas.php?cod=edit&&id='.$velas['id_vela'].'">Editar</a>'; 
                     echo '</td>';
                     
                     echo '<td>';
-                        echo '<a class="btn" id="btn-excluir" href="controller/velasController.php?cod=del&&id='.$velas['id_vela'].'">Excluir</a>';
+                        echo '<a class="btn" id="btn-excluir" href="controller/velasController.php?cod=del&&id_vela='.$velas['id_vela'].'">Excluir</a>';
                     echo '</<td>';
                     
                     echo '</tr>';
