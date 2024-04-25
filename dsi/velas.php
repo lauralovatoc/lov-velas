@@ -14,12 +14,22 @@ echo ('<br><br><br><br><br>');
                 foreach($velas as $result){
                     
                     echo ('<div class="col-md-3">');
-                    echo ('<img src="'.$result['caminho_img'].'" style="width:250px;height:300px;"/>');
+                    echo ('<div style="text-align:center"><img src="'.$result['caminho_img'].'" style="width:250px;height:300px;"/></div><br><br>');
                     echo('<h5 style="color:#9A4A70;text-align:center;">'.$result['nome'].'</h5>');
                     echo('<p>'.$result['descr'].'</p>');
-                    echo('<p>R$'.$result['valor'].',00</p>');
+                    echo('<p><strong>R$'.$result['valor'].',00</strong></p>');
                     
-                    echo('<div style="text-align:center"><a href="carrinho.php" id="btn-editar" class="btn"><span class="material-symbols-outlined">shopping_cart</span> Adicionar</a></div>');
+                    echo('<form action="controller/carrinhoController.php" method="post">');
+                    echo ('<div style="text-align:center"><input type="hidden" name="quantidade[]" value="1"/></div><br>');
+                    
+                    echo('<input type="hidden" value="'.$result['id_vela'].'" name="id_vela[]">');
+                    echo('<input type="hidden" value="'.$result['nome'].'" name="nome[]">');
+                    echo('<input type="hidden" value="'.$result['caminho_img'].'" name="caminho_img[]">');
+                    echo('<input type="hidden" value="'.$result['valor'].'" name="valor[]">');
+                    
+                    echo('<div style="text-align:center"><button type="submit" class="btn btn-editar"><span class="material-symbols-outlined">shopping_cart</span> Adicionar ao carrinho</button></div>');
+                    echo('</form>');    
+                   
                     echo ('<br><br>');
                     echo ('</div>');
 

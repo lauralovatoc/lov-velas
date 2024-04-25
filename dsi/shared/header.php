@@ -92,17 +92,21 @@
                 margin:10px;
             }
 
-            #btn-editar{
+            .btn-editar{
                 color:#9A4A70;
                 background-color:#F5D7E3;
             }
 
-            #btn-excluir {
+            .btn-excluir {
                 color:white;
                 background-color:#9A4A70;
             }
-
-            #9A4A70
+            
+            #add{
+                color:#9A4A70;
+                text-decoration:none;
+            }
+            
         </style>
     </head>
 
