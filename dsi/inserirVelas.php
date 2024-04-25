@@ -143,11 +143,6 @@ require_once './controller/adminAutentication.php';
                             </div>
                             
                             <div class="form-group">
-                                <label>Custo:</label>
-                                <input type="number" class="form-control" placeholder="Custo de produção" id="custo" name="custo">
-                            </div>
-                            
-                            <div class="form-group">
                                 <label>Valor:</label>
                                 <input type="number" class="form-control" placeholder="Valor cobrado" id="valor" name="valor">
                             </div>

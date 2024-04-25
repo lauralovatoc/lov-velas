@@ -8,7 +8,6 @@ class velasModel {
     protected $nome;
     protected $descr;
     protected $quantidade;
-    protected $custo;
     protected $valor;
     protected $caminho_img;
     
@@ -33,10 +32,6 @@ class velasModel {
         return $this->quantidade;
     }
 
-    public function getCusto() {
-        return $this->custo;
-    }
-
     public function getValor() {
         return $this->valor;
     }
@@ -59,10 +54,6 @@ class velasModel {
 
     public function setQuantidade($quantidade): void {
         $this->quantidade = $quantidade;
-    }
-
-    public function setCusto($custo): void {
-        $this->custo = $custo;
     }
 
     public function setValor($valor): void {
@@ -102,7 +93,6 @@ class velasModel {
                 $this->nome = $value['nome'];
                 $this->descr = $value['descr'];
                 $this->quantidade = $value['quantidade'];
-                $this->custo = $value['custo'];
                 $this->valor = $value['valor'];
                 $this->caminho_img = $value['caminho_img'];
             }
@@ -112,36 +102,17 @@ class velasModel {
         return $resultList;
     }
     
-    public function insert($nome,$descr,$quantidade,$custo,$valor,$caminho_img) {
+    public function insert($nome,$descr,$quantidade,$valor,$caminho_img) {
         $db = new ConexaoMysql();
         $db->Conectar();
 
-        $sql = "INSERT INTO vela(nome,descr,quantidade,custo,valor,caminho_img) values('$nome','$descr','$quantidade','$custo','$valor','$caminho_img')";
+        $sql = "INSERT INTO vela(nome,descr,quantidade,valor,caminho_img) values('$nome','$descr','$quantidade','$valor','$caminho_img')";
     
   
         $db->Executar($sql);
         
         header('location:../adminPage.php');
         
-        $db->Desconectar();
-
-        return $db->total;
-    }
-
-    public function update() {
-        $db = new ConexaoMysql();
-        $db->Conectar();
-
-        $sql = 'UPDATE velas SET '
-                . 'nome="'.$this->nome.'",'
-                . 'descr="'.$this->descr.'",'
-                . 'quantidade ="'.$this->quantidade.'",'
-                . 'custo ="'.$this->custo.'"'
-                . 'valor ="'.$this->valor.'"'
-                . 'caminho_img ="'.$this->caminho_img.'"'
-                . 'WHERE id_vela = '.$this->id_vela;
-
-        $db->Executar($sql);
         $db->Desconectar();
 
         return $db->total;

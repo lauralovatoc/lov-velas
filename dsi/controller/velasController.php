@@ -5,14 +5,13 @@ if($_POST){
     $nome = $_POST['nome'];
     $descr = $_POST['descr'];
     $quantidade = $_POST['quantidade'];
-    $custo = $_POST['custo'];
     $valor = $_POST['valor'];
     $caminho_img = $_POST['caminho_img'];
     
     $caminho_img = 'img/' . $caminho_img;
     
     $velas = new velasModel();
-    $velas->insert($nome,$descr,$quantidade,$custo,$valor,$caminho_img);
+    $velas->insert($nome,$descr,$quantidade,$valor,$caminho_img);
         
 
  
