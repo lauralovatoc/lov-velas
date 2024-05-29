@@ -14,6 +14,13 @@ $compras = mostrarCompras($email);
 echo('<div class="container">');
 echo('<div class="row"');
 
+if(empty($compras)){
+    echo ('<br><div class="alert alert-success">');
+    echo ('Nenhuma compra antiga!');
+    echo ('</div>');
+} else{
+
+
 foreach ($compras as $result) {
     echo('<div class="col-md-12">');
 
@@ -24,15 +31,17 @@ foreach ($compras as $result) {
     $id_pedido = $result['id_pedido'];
 
     $velas = idVelas($id_pedido);
-    //print_r($velas);
+
     foreach ($velas as $as) {
         $result = loadById($as['id_vela']);
-        
+     
         echo('<div class="col-md-2" style="text-align:center">');
         echo('<img class="img-compras" src="'.$result->caminho_img.'">');
-        echo('<p>'.$result->nome.' | R$'.$result->valor.',00</p>');
+        echo('<p>'.$result->nome.' | R$'.$result->valor.',00 | Quantidade: '.$result->quantidade.'</p>');
         echo('</div>');
  
     }
     echo('<hr>');
 }
+}
+require_once './shared/footer.php';

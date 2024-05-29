@@ -133,8 +133,12 @@ class velasModel {
         $db = new ConexaoMysql();
         $db->Conectar();
         
-        $sql =  'SELECT nome from vela WHERE nome LIKE '%$pesquisar%' LIMIT 5';
+        $sql =  'SELECT * from vela WHERE nome LIKE "%'.$pesquisar.'%"';
         $result=$db->Consultar($sql);
+        
+        if($result->num_rows==0){
+            $result=null;
+        }
         
         $db->Desconectar();
         return $result;

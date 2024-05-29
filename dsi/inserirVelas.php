@@ -5,15 +5,17 @@ require_once './controller/adminAutentication.php';
 <html>
     <head>
         <title>Lov Velas Aromáticas</title>
+         <link rel="icon" type="image/x-icon" href="img/logo-escura.png">
         <meta charset="UTF-8">
 
         <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script src="./js/bootstrap.bundle.min.js" type="text/javascript"></script>
-
+        
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
        
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
         
         <style>
             *{
@@ -108,7 +110,6 @@ require_once './controller/adminAutentication.php';
                 <div class="login-main-text">
                     <a class="logo" href="index.php"><img src="img/logo-escura.png"></a>
                     <h4>Inserir uma vela</h4>
-                    <p>- ou editar</p>
                 </div>
             </div>]
             <?php

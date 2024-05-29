@@ -60,6 +60,10 @@ class pedidoModel{
         
         $comprasAnteriores = $db->Consultar($sql);
         $db->Desconectar();
+        
+        if($comprasAnteriores->num_rows==0){
+            $comprasAnteriores = null;
+        }
 
         return $comprasAnteriores;
     }
