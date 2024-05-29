@@ -5,7 +5,7 @@ if($_POST){
 
     $velasList = $_POST['velas'];
     $quantidadesVelas = $_POST['quantidades'];
-
+    
     if(isset($valorTotal, $email, $velasList, $quantidadesVelas)){
         require_once '../model/pedidoModel.php';
         $pedido = new pedidoModel();
@@ -13,9 +13,13 @@ if($_POST){
         $pedido->setValor_total($valorTotal);
         $id_compra = $pedido->realizarCompra();
 
+        
         require_once '../model/pedido_velaModel.php';
+       
         $pedidovela = new pedido_velaModel();
-        $pedidovela->insereProduto($velasList, $quantidadesVelas, $id_compra);
+        $pedidovela->insereProduto($velasList, $quantidadesVelas, $email, $id_compra);
+
+        
         session_start();
         $_SESSION['carrinho'] = null;
         $_SESSION['carrinho'] = [];

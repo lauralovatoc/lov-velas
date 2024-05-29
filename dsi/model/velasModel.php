@@ -4,12 +4,12 @@ require_once 'ConexaoMysql.php';
 
 class velasModel {
     
-    protected $id_vela;
-    protected $nome;
-    protected $descr;
-    protected $quantidade;
-    protected $valor;
-    protected $caminho_img;
+    public $id_vela;
+    public $nome;
+    public $descr;
+    public $quantidade;
+    public $valor;
+    public $caminho_img;
     
 
     public function __construct() {
@@ -127,7 +127,18 @@ class velasModel {
         $db->Executar($sql);
         $db->Desconectar();
     }
-
+    
+    
+    public function buscar($pesquisar){
+        $db = new ConexaoMysql();
+        $db->Conectar();
+        
+        $sql =  'SELECT nome from vela WHERE nome LIKE '%$pesquisar%' LIMIT 5';
+        $result=$db->Consultar($sql);
+        
+        $db->Desconectar();
+        return $result;
+    }
 }
 
 ?>

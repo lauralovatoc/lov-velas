@@ -4,6 +4,7 @@ class pedido_velaModel{
     protected $id_vela;
     protected $id_pedido;
     protected $quantidade;
+    protected $email;
     
     public function __construct(){
         
@@ -21,6 +22,10 @@ class pedido_velaModel{
         return $this->quantidade;
     }
 
+    public function getEmail() {
+        return $this->email;
+    }
+    
     public function setId_vela($id_vela): void {
         $this->id_vela = $id_vela;
     }
@@ -32,15 +37,33 @@ class pedido_velaModel{
     public function setQuantidade($quantidade): void {
         $this->quantidade = $quantidade;
     }
+    
+    public function setEmail($email): void {
+        $this->email = $email;
+    }
 
-    public function insereProduto($velasList, $quantidadesVelas, $id_compra){
+    public function insereProduto($velasList, $quantidadesVelas, $email_user, $id_compra){
         $db = new ConexaoMysql();
         $db->Conectar();
         for ($i = 0; $i < count($velasList); $i++) {            
-            $sql = "INSERT INTO produto_in_compra (id_compra, id_vela, quantidade) values (".$id_compra.", ".$velasList[$i].", ".$quantidadesVelas[$i].");";
+            $sql = 'INSERT INTO vela_pedido (id_pedido, id_vela, quantidade, email) values ("'.$id_compra.'", "'.$velasList[$i].'", "'.$quantidadesVelas[$i].'","'.$email_user.'")';
             $db->Executar($sql);
         }
         $db->Desconectar();
+       
+        
         return $db->total;
+    }
+    
+    public function idVelas($id_pedido){
+        $db = new ConexaoMysql;
+        $db->Conectar();
+        
+        $sql='SELECT id_vela from vela_pedido where id_pedido='.$id_pedido;
+        $result = $db->Consultar($sql);
+        
+        $db->Desconectar();
+        
+        return $result;
     }
 }

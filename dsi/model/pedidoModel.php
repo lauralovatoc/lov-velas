@@ -52,4 +52,15 @@ class pedidoModel{
         
         return $id_compra;
     }
+    
+    public function mostrarCompras($email){
+        $db = new ConexaoMysql;
+        $db->Conectar();
+        $sql = "SELECT * from pedido where email='$email'";
+        
+        $comprasAnteriores = $db->Consultar($sql);
+        $db->Desconectar();
+
+        return $comprasAnteriores;
+    }
 }

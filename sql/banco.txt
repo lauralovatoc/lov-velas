@@ -16,6 +16,24 @@ id_tipo_usuario int,
 foreign key (id_tipo_usuario) references tipo_usuario(id_tipo_usuario),
 primary key (email)
 );
+drop database if exists lov;
+create database lov;
+use lov;
+
+create table tipo_usuario(
+id_tipo_usuario int not null,
+nome varchar(40),
+primary key(id_tipo_usuario)
+);
+
+create table usuario(
+nome varchar(40),
+email varchar(40) not null,
+senha varchar(40) not null,
+id_tipo_usuario int, 
+foreign key (id_tipo_usuario) references tipo_usuario(id_tipo_usuario),
+primary key (email)
+);
 
 create table vela(
 id_vela int auto_increment not null,
@@ -37,9 +55,11 @@ primary key (id_pedido)
 );
 
 create table vela_pedido(
-id_vela int not null,
-id_pedido int not null,
-quantidade int not null,
+id_vela int,
+id_pedido int,
+quantidade int,
+email varchar(40),
+foreign key (email) references usuario(email),
 foreign key (id_pedido) references pedido(id_pedido),
 foreign key (id_vela) references vela(id_vela)
 );

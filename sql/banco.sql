@@ -37,9 +37,11 @@ primary key (id_pedido)
 );
 
 create table vela_pedido(
-id_vela int not null,
-id_pedido int not null,
-quantidade int not null,
+id_vela int,
+id_pedido int,
+quantidade int,
+email varchar(40),
+foreign key (email) references usuario(email),
 foreign key (id_pedido) references pedido(id_pedido),
 foreign key (id_vela) references vela(id_vela)
 );
