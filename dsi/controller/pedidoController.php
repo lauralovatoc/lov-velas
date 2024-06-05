@@ -1,6 +1,18 @@
 <?php
+
+
+@$cod = $_REQUEST['cod'];
+    if (isset($cod)) {
+    if ($cod == 'aprovar'){
+    $pedidoAprovar = $_REQUEST['pedido'];
+    require_once '../model/pedidoModel.php';
+    $pedido = new pedidoModel();
+    $pedido->aprovar($pedidoAprovar);
+
+    }
+}
  function mostrarCompras($email) {
-    require_once './model/pedidoModel.php';
+     require_once './model/pedidoModel.php';
     $compras = new pedidoModel();
     $allCompras = $compras->mostrarCompras($email);
 
@@ -13,4 +25,12 @@ function idVelas($id_pedido){
     $velasInCompra = $velas->idVelas($id_pedido);
 
     return $velasInCompra;
+}
+
+function loadPedidos(){
+    require_once './model/pedidoModel.php';
+    $pedidos = new pedidoModel();
+    $result = $pedidos->loadPedidos();
+    
+    return $result;
 }

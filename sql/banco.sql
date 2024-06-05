@@ -16,6 +16,24 @@ id_tipo_usuario int,
 foreign key (id_tipo_usuario) references tipo_usuario(id_tipo_usuario),
 primary key (email)
 );
+drop database if exists lov;
+create database lov;
+use lov;
+
+create table tipo_usuario(
+id_tipo_usuario int not null,
+nome varchar(40),
+primary key(id_tipo_usuario)
+);
+
+create table usuario(
+nome varchar(40),
+email varchar(40) not null,
+senha varchar(40) not null,
+id_tipo_usuario int, 
+foreign key (id_tipo_usuario) references tipo_usuario(id_tipo_usuario),
+primary key (email)
+);
 
 create table vela(
 id_vela int auto_increment not null,
@@ -31,6 +49,7 @@ create table pedido(
 id_pedido int auto_increment not null,
 data_compra timestamp default current_timestamp,
 valor_total Float,
+status_pedido int,
 email varchar(40),
 foreign key(email) references usuario(email),
 primary key (id_pedido)

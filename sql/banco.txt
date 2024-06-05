@@ -49,6 +49,7 @@ create table pedido(
 id_pedido int auto_increment not null,
 data_compra timestamp default current_timestamp,
 valor_total Float,
+status_pedido int,
 email varchar(40),
 foreign key(email) references usuario(email),
 primary key (id_pedido)

@@ -7,6 +7,7 @@ if($_POST){
     $quantidadesVelas = $_POST['quantidades'];
     
     if(isset($valorTotal, $email, $velasList, $quantidadesVelas)){
+        
         require_once '../model/pedidoModel.php';
         $pedido = new pedidoModel();
         $pedido->setEmail($email);
@@ -23,6 +24,6 @@ if($_POST){
         session_start();
         $_SESSION['carrinho'] = null;
         $_SESSION['carrinho'] = [];
-        header('location:../carrinho.php?cod=success');
+        header('location:../carrinho.php?cod=espera');
     }
 }

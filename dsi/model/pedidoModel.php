@@ -5,11 +5,21 @@ class pedidoModel{
     protected $data_compra;
     protected $valor_total;
     protected $email;
+    protected $status_pedido;
 
     public function __construct(){
         
     }
     
+    public function getStatus_pedido() {
+        return $this->status_pedido;
+    }
+
+    public function setStatus_pedido($status_pedido): void {
+        $this->status_pedido = $status_pedido;
+    }
+
+        
     public function getId_pedido() {
         return $this->id_pedido;
     }
@@ -45,7 +55,7 @@ class pedidoModel{
     public function realizarCompra(){
         $db = new ConexaoMysql();
         $db->Conectar();
-        $sql = 'INSERT INTO pedido (email, valor_total) values ("'.$this->email.'", "'.$this->valor_total.'");';
+        $sql = 'INSERT INTO pedido (email, valor_total,status_pedido) values ("'.$this->email.'", "'.$this->valor_total.'",1);';
 
         $id_compra = $db->Executar($sql);
         $db->Desconectar();
@@ -54,7 +64,7 @@ class pedidoModel{
     }
     
     public function mostrarCompras($email){
-        $db = new ConexaoMysql;
+        $db = new ConexaoMysql();
         $db->Conectar();
         $sql = "SELECT * from pedido where email='$email'";
         
@@ -66,5 +76,27 @@ class pedidoModel{
         }
 
         return $comprasAnteriores;
+    }
+    
+    public function loadPedidos(){
+        $db = new ConexaoMysql();
+        $db->Conectar();
+        
+        $sql="SELECT * from pedido";
+        
+        $result = $db->Consultar($sql);
+        $db->Desconectar();
+        
+        return $result;
+    }
+    
+    public function aprovar($pedido){
+        $db = new ConexaoMysql();
+        $db->Conectar();
+        
+        $sql = "UPDATE pedido SET status_pedido = 2 where id_pedido='$pedido'";
+        $db->Executar($sql);
+        header('location:../pedidos.php');
+        $db->Desconectar();
     }
 }

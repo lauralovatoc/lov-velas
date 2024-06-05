@@ -146,6 +146,11 @@
                         style="text-decoration: none;"
                         href="adminPage.php"><span class="material-symbols-outlined" style="color:white">person</span> Admin</a>
                         </li>');
+                        echo('<li class="nav-item">
+                        <a class="nav-link" 
+                        style="text-decoration: none;"
+                        href="pedidos.php"><span class="material-symbols-outlined">shopping_cart</span> Pedidos</a>
+                        </li>');
                     }
 
                     

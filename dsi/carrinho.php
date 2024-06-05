@@ -8,9 +8,9 @@ echo '<br>';
 
 @$cod = $_REQUEST['cod'];
             if (isset($cod)) {
-                if ($cod == 'success') {  
+                if ($cod == 'espera') {  
                     echo ('<br><div class="alert alert-success">');
-                    echo ('Compra realizada com sucesso.');
+                    echo ('Pedido realizado, espere confirmação.');
                     echo ('</div>');
                 }
             }

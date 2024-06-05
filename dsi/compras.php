@@ -23,13 +23,20 @@ if(empty($compras)){
 
 foreach ($compras as $result) {
     echo('<div class="col-md-12">');
-
+    
     echo('<div class="pedido"');
     echo('<p>Compra ' . $result['data_compra'] . ' | <b>Valor total:' . $result['valor_total'] . '</b></p>');
+    if($result['status_pedido']==1){
+        echo('<div class="alert alert-danger">Esperando confirmação do pedido!</div>');
+    } else if($result['status_pedido']==2){
+        echo('<div class="alert alert-success">Pedido confirmado!</div>');
+    }
     echo('</div>');
-
+    
+    
+    echo('<br><br>');
+    echo('<div>');
     $id_pedido = $result['id_pedido'];
-
     $velas = idVelas($id_pedido);
 
     foreach ($velas as $as) {
@@ -42,6 +49,9 @@ foreach ($compras as $result) {
  
     }
     echo('<hr>');
+    echo('</div>');
 }
 }
+
 require_once './shared/footer.php';
+?>
